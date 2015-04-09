@@ -5,7 +5,20 @@ angular
 
   .factory 'rbmaSushiSequencerPageSchema', (rbmaPageBaseProperties, rbmaPageMetaDataProperties) ->
     type: 'object'
-    properties: angular.extend {}, rbmaPageBaseProperties, rbmaPageMetaDataProperties
+    properties: angular.extend {}, rbmaPageBaseProperties, rbmaPageMetaDataProperties,
+      artists:
+        type: 'array'
+        items:
+          type: 'object'
+          title: 'artist'
+          properties:
+            name:
+              type: 'string'
+            video:
+              type: 'object'
+            posterImage:
+              type: 'object'
+
 
   .factory 'rbmaSushiSequencerPageForm', (rbmaPageMetaDataFields) -> [
     type: 'fieldset'
@@ -19,14 +32,20 @@ angular
     title: 'Meta Data'
     items: [
       'author'
-    ,
       'slug'
-    ,
-      key: 'firstPublished'
-      title: 'First Published'
-      type: 'datepicker'
-      format: "yyyy-mm-ddT00:00:00Z"
     ].concat rbmaPageMetaDataFields
+  ,
+    type: 'fieldset'
+    title: 'Artists'
+    items: [
+      key: 'artists'
+      startEmpty: true
+      items: [
+        {key: 'artists[].name', type: 'text'}
+        {key: 'artists[].video', type: 'video'}
+        {key: 'artists[].posterImage', type: 'asset'}
+      ]
+    ]
   ]
 
   .run (rbmaPageTypeRegistry, rbmaSushiSequencerPageSchema, rbmaSushiSequencerPageForm) ->

@@ -1,1 +1,1 @@
-"use strict";angular.module("rbmaSushiSequencer",[]).controller("SushiSequencerController",function(){return console.log("This is the sushi controller.")}).directive("rbmaSushiSequencer",function(){return{template:"This is the sushi directive"}});
+"use strict";angular.module("rbmaSushiSequencer",[]).controller("SushiSequencerController",["$scope","Couchdb",function(e,r){return r.getSearchView("search","multiSearch",{q:"type:sushiSequencer",include_docs:!0},!0).then(function(r){return e.artists=r.data.rows[0].doc.artists})}]);
