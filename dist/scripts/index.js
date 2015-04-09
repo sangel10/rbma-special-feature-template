@@ -1,1 +1,0 @@
-"use strict";angular.module("rbmaSushiSequencer",[]).controller("SushiSequencerController",function(){return console.log("Controller here."),console.log("!!!!!!!!!")}).directive("rbmaSushiSequencer",function(){return{template:"This is the sushi directive"}});

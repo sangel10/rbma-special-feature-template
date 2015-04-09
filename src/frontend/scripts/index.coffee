@@ -3,8 +3,7 @@
 angular
   .module('rbmaSushiSequencer', [])
   .controller('SushiSequencerController', ->
-    console.log('Controller here.')
-    console.log('!!!!!!!!!')
+    console.log('This is the sushi controller.')
   )
   .directive('rbmaSushiSequencer', ->
     template: 'This is the sushi directive'
