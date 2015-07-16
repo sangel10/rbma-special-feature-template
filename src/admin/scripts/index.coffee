@@ -1,7 +1,7 @@
 'use strict'
 
 angular
-  .module('rbmaApp.pageTypes')
+  .module('rbmaComponents.pageTypes')
 
   .factory 'rbmaSushiSequencerPageSchema', (rbmaPageBaseProperties, rbmaPageMetaDataProperties) ->
     type: 'object'
@@ -48,8 +48,8 @@ angular
     ]
   ]
 
-  .run (rbmaPageTypeRegistry, rbmaSushiSequencerPageSchema, rbmaSushiSequencerPageForm) ->
-    rbmaPageTypeRegistry.register 'sushiSequencer',
+  .run (acadminPageTypeRegistry, rbmaSushiSequencerPageSchema, rbmaSushiSequencerPageForm) ->
+    acadminPageTypeRegistry.register 'sushiSequencer',
       schema: rbmaSushiSequencerPageSchema
       form: rbmaSushiSequencerPageForm
       directive: 'rbma-sushi-sequencer-page'
