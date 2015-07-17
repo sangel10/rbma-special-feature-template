@@ -56,3 +56,4 @@ angular
       label: 'sushi sequencer'
       specialFeature: true
       order: 10
+      singleton: true
